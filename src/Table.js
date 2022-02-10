@@ -7,10 +7,13 @@ import TableFoot from "./TableFoot.js";
 
 
 function Table(props) {
+
+    const [header_labels, set_header_labels] = useState(props.col_names); 
    
+
+    /*
     const [displayArray, setDisplayArray] = useState(props.items); 
     const [ascendSort, setAscendSort] = useState(true); 
-    const [runningSubtotal, setRunningSubtotal] = useState(0); 
     const [refresh, setRefresh] = useState(true); 
     //var displayArray = props.items; 
 
@@ -32,14 +35,8 @@ function Table(props) {
         
     }
 
-    const updateSubtotal = (n) => {
-        n.subtotal = n.quantity*n.unit_price; 
-    }
+  
 
-    const updateTotal = () => {
-        const newTotal = displayArray.reduce((total,currentVal) => total=total+currentVal.subtotal, 0); 
-        setRunningSubtotal(newTotal); 
-    }
 
     const removeItem = (n) => {
         const tempList = displayArray;
@@ -48,23 +45,15 @@ function Table(props) {
         setRefresh(!refresh); //only way to get dom to re-render by adding this prop alteration
 
     }
+    */ 
 
 
 
     return (
         <div>
             <table>
-                <TableHead content={displayArray} tableSort={tableSort} headerLabels={props.tableColumns}/>                 
-                <TableContent 
-                    content={displayArray} 
-                    updateSubtotal={updateSubtotal} 
-                    updateTotal={updateTotal}
-                    removeItem={removeItem}
-                    tableColumns={props.tableColumns}
-
-                /> 
-
-                <TableFoot subtotal={runningSubtotal}/> 
+                <TableHead headerLabels={header_labels}/>                 
+               
                 
 
 
