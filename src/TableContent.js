@@ -1,43 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import "./TableContent.css"; 
-//import CurrencyFormat from 'react-currency-format';
 
 
 function TableContent(props) {
     //const [displayList, setDisplayList] = useState(props.content); 
    // const displayList = props.content; 
  
-    
-    
-   
+//col_names
+//
+//{props.headerLabels.map((col_ref) =>
 
     const renderRows = (item) => {
-        //const temp = Array.from(item); 
-        //console.log("check"); 
         return(
-            <tr>
-                {props.tableColumns.map((cell) =>
+            <tr className="tableContent__row">
+                {props.headerLabels.map((col_ref) =>
                     
                     <td>
-                        {item[cell.ref_key]}
+                        {item[col_ref]}
                       
                     </td> 
 
                 )}
-            <td>
-                <button onClick={() => removeRow(item)}>Remove</button>
-            </td>
-
+                <td>
+                    <button>Remove</button>
+                </td>
             </tr>
-            
-
         ); 
-
-    }
-
-
-    const removeRow = (n) => {
-        props.removeItem(props.content.indexOf(n));
     }
 
 
@@ -45,9 +33,7 @@ function TableContent(props) {
     return (
         
         <> 
-            {props.content.map(renderRows)} 
-            {props.content.map(props.updateSubtotal)} 
-            {props.updateTotal()} 
+            {props.row_data_table_content.map(renderRows)} 
         </> 
         
        

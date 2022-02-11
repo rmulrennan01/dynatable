@@ -5,8 +5,7 @@ function TableHead(props) {
 
 
     const update = (n) => {
-        props.tableSort(n);       
-        
+        props.tableSort(n);          
     }
 
     const renderHead = (col) => {        
@@ -18,7 +17,7 @@ function TableHead(props) {
     }
 
     return(
-        <tr> 
+        <tr className='tableHeader'> 
             {header.map(renderHead)}
         </tr> 
     )

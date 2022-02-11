@@ -9,6 +9,7 @@ import TableFoot from "./TableFoot.js";
 function Table(props) {
 
     const [header_labels, set_header_labels] = useState(props.col_names); 
+    const [row_data_table, set_row_data_table] = useState(props.row_data); 
    
 
     /*
@@ -52,7 +53,8 @@ function Table(props) {
     return (
         <div>
             <table>
-                <TableHead headerLabels={header_labels}/>                 
+                <TableHead headerLabels={header_labels}/> 
+                <TableContent headerLabels = {header_labels} row_data_table_content={row_data_table}    />     
                
                 
 
